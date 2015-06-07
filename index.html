@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<title>Visualized Triangulation</title>
+	<style>
+		.cf:before,
+		.cf:after {
+			content: " ";
+			display: table;
+		}
+		.cf:after {
+			clear: both;
+		}
+		* {
+			box-sizing: border-box;
+		}
+		html, body {
+			height: 100%;
+			margin: 0px;
+			padding: 0px;
+			position: relative;
+		}
+		.map-data {
+			margin: 1em 0.5em;
+			height: 10%;
+		}
+		.map-data fieldset {
+			float: left;
+			width: 24%;
+		}
+		.map-data .form-input-crd {
+			width: 100px;
+		}
+		.map-data .form-input-rds {
+			width: 60px;
+		}
+		.map-data .form-button {
+			float: left;
+			margin: 0.8em;
+			background: #eee;
+			border: 1px solid #000;
+			padding: 1em 2em;
+		}
+		#map-canvas {
+			height: 90%;
+		}
+	</style>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<div class="map-data">
+		<form id="position-data" class="cf">
+			<fieldset>
+				<legend>Position 1:</legend>
+				<input name="pos_1-lat" type="text" class="form-input form-input-crd">
+				<input name="pos_1-lng" type="text" class="form-input form-input-crd">
+				<input name="pos_1-rds" type="text" class="form-input form-input-rds" placeholder="Radius">
+			</fieldset>
+			<fieldset>
+				<legend>Position 2:</legend>
+				<input name="pos_2-lat" type="text" class="form-input form-input-crd" placeholder="Latitude">
+				<input name="pos_2-lng" type="text" class="form-input form-input-crd" placeholder="Longtitude">
+				<input name="pos_2-rds" type="text" class="form-input form-input-rds" placeholder="Radius">
+			</fieldset>
+			<fieldset>
+				<legend>Position 3:</legend>
+				<input name="pos_3-lat" type="text" class="form-input form-input-crd" placeholder="Latitude">
+				<input name="pos_3-lng" type="text" class="form-input form-input-crd" placeholder="Longtitude">
+				<input name="pos_3-rds" type="text" class="form-input form-input-rds" placeholder="Radius">
+			</fieldset>
+			<button id="submit" class="form-button">Triangulate</button>
+		</form>
+	</div>
+	<div id="map-canvas"></div>
+	<script src="location.js"></script>
+	<script type="text/javascript">
+		if(location.search) {
+			fillFields();
+		}
+	</script>
+</body>
+</html>
