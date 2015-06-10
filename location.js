@@ -1,8 +1,10 @@
 // Try to get the users location
 (function() {
 	var locationSuccess = function(pos) {
-		var inputLat = document.getElementsByName("pos_1-lat")[0].value = pos.coords.latitude;
-		var inputLng = document.getElementsByName("pos_1-lng")[0].value = pos.coords.longitude;
+		var inputLat = pos.coords.latitude;
+		var inputLng = pos.coords.longitude;
+		document.getElementsByName("pos_1-lat")[0].value = inputLat;
+		document.getElementsByName("pos_1-lng")[0].value = inputLng;
 	}
 
 	var locationError = function(e){
